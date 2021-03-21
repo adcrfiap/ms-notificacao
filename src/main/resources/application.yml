@@ -1,5 +1,5 @@
 slack:
-  webhook: https://hooks.slack.com/services/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
+  webhook: https://hooks.slack.com/services/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
 
 spring:
   rabbitmq:
