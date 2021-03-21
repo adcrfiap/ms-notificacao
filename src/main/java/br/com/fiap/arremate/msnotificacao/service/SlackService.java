@@ -18,7 +18,7 @@ public class SlackService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlackService.class);
 
-    @Value("classpath:*/slack/config.txt")
+    @Value("classpath*:/slack/config.txt")
     private Resource resourceFile;
 
     public void sendMessageToSlack(String message) {
