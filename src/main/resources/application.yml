@@ -1,6 +1,3 @@
-slack:
-  webhook: https://hooks.slack.com/services/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
-
 spring:
   rabbitmq:
 #    host: localhost

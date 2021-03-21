@@ -15,14 +15,12 @@ public class SlackService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlackService.class);
 
-    @Value("${slack.webhook}")
-    private String urlSlackWebook;
-
     public void sendMessageToSlack(String message) {
         process(message);
     }
 
     private void process(String message) {
+        String urlSlackWebook = "https://hooks.slack.com/services/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";
         Payload payload = Payload.builder()
                 .channel("#notificacao")
                 .username("ms-notificacao")
