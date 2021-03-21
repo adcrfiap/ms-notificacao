@@ -26,7 +26,7 @@ public class SlackService {
     }
 
     private void process(String message) {
-        String urlSlackWebhook = getURLSlackWebhook();
+        String urlSlackWebhook = getURLSlackWebhook() + "B01RZ0003L2/ukU2y6XyPTo7xQFnnZVp325J";
 
         Payload payload = Payload.builder()
                 .channel("#notificacao")
