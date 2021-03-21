@@ -45,10 +45,6 @@ public class SlackService {
         }
     }
 
-    private String exampleMessage() {
-        return "Mensagem de teste";
-    }
-
     private String getURLSlackWebhook() {
         try {
             File file = resourceFile.getFile();
