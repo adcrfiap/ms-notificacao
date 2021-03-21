@@ -1,5 +1,5 @@
 slack:
-  webhook: https://hooks.slack.com/services/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
+  webhook: https://hooks.slack.com/services/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
   application:
     client-id: 1407680307520.1906499659744
     client-secret: 657aecd91f617ba6f9f75ccc235a41eb
