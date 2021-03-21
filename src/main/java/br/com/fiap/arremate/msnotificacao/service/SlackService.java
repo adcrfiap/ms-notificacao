@@ -55,7 +55,7 @@ public class SlackService {
             Scanner scanner = new Scanner(file);
             return scanner.nextLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Failed to get URL slack webhook - {}", e.getMessage());
         }
         return null;
     }
