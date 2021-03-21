@@ -18,9 +18,6 @@ public class SlackService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlackService.class);
 
-    @Value("classpath*:/slack/config.txt")
-    private Resource resourceFile;
-
     public void sendMessageToSlack(String message) {
         process(message);
     }
@@ -47,7 +44,7 @@ public class SlackService {
 
     private String getURLSlackWebhook() {
         try {
-            File file = resourceFile.getFile();
+            File file = new File("src/main/resources/slack/config.txt");
             Scanner scanner = new Scanner(file);
             return scanner.nextLine();
         } catch (IOException e) {
