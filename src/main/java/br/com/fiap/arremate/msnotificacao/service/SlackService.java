@@ -6,23 +6,28 @@ import com.github.seratch.jslack.api.webhook.WebhookResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 @Service
 public class SlackService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlackService.class);
 
-    @Value("${slack.webhook}")
-    private String urlSlackWebook;
+    @Value("classpath:/slack/config.txt")
+    private Resource resourceFile;
 
     public void sendMessageToSlack(String message) {
         process(message);
     }
 
     private void process(String message) {
+        String urlSlackWebhook = getURLSlackWebhook();
+
         Payload payload = Payload.builder()
                 .channel("#notificacao")
                 .username("ms-notificacao")
@@ -31,16 +36,27 @@ public class SlackService {
 
         try {
             WebhookResponse webhookResponse = Slack.getInstance().send(
-                    urlSlackWebook,payload
+                    urlSlackWebhook,payload
             );
             LOGGER.info("code -> {}", webhookResponse.getCode());
             LOGGER.info("body -> {}", webhookResponse.getBody());
         } catch(IOException e) {
-            LOGGER.info("Unexpected Error! WebHook -> {} - {}", urlSlackWebook, e.getMessage());
+            LOGGER.info("Unexpected Error! WebHook -> {} - {}", urlSlackWebhook, e.getMessage());
         }
     }
 
     private String exampleMessage() {
         return "Mensagem de teste";
+    }
+
+    private String getURLSlackWebhook() {
+        try {
+            File file = resourceFile.getFile();
+            Scanner scanner = new Scanner(file);
+            return scanner.nextLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
