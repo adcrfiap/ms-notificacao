@@ -6,7 +6,6 @@ import com.github.seratch.jslack.api.webhook.WebhookResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -18,6 +17,12 @@ public class SlackService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlackService.class);
 
+    @Value("${slack.channel}")
+    private String channel;
+
+    @Value("${slack.username}")
+    private String username;
+
     public void sendMessageToSlack(String message) {
         process(message);
     }
@@ -26,8 +31,8 @@ public class SlackService {
         String urlSlackWebhook = getURLSlackWebhook() + "B01RZ0003L2/ukU2y6XyPTo7xQFnnZVp325J";
 
         Payload payload = Payload.builder()
-                .channel("#notificacao")
-                .username("ms-notificacao")
+                .channel(channel)
+                .username(username)
                 .text(message)
                 .build();
 

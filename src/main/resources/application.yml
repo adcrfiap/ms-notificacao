@@ -1,3 +1,7 @@
+slack:
+  channel: #notificacao
+  username: ms-notificacao
+
 spring:
   rabbitmq:
 #    host: localhost
