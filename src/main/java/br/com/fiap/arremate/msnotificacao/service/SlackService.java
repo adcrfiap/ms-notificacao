@@ -25,7 +25,7 @@ public class SlackService {
     private void process(String message) {
         Payload payload = Payload.builder()
                 .channel("#notificacao")
-                .username("notificacao")
+                .username("ms-notificacao")
                 .text(message)
                 .build();
 
