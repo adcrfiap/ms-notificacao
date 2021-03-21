@@ -1,0 +1,48 @@
+slack:
+  webhook: https://hooks.slack.com/services/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
+
+spring:
+  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: admin
+    host: rattlesnake.rmq.cloudamqp.com
+    username: lmmgtdet
+    password: UDlz-IlIELwOH5nLssBj6rx7JtrSWubH
+    virtualhost: lmmgtdet
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: adcr.fiap@gmail.com
+    password: Fg4Bq5O$s6ZE
+    port: 587
+    subject: Dados da intensao
+    to: adcr.fiap@gmail.com
+    from: adcr.fiap@gmail.com
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+#  mail:
+#    default-encoding: UTF-8
+#    host: smtp.gmail.com
+#    username: dkchevis@gmail.com
+#    password: <>
+#    port: 587
+#    subject: Intensao de compra
+#    to: dkchevi@hotmail.com
+#    from: dkchevis@gmail.com
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+    protocol: smtp
+    test-connection: false
+
+
+
